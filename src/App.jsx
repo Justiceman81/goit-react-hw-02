@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Feedback from "./components/Feedback/Feedback";
 import Options from "./components/Options/Options";
+import Description from "./components/Description/Description";
+import Section from "./components/Section/Section";
 
 const App = () => {
   const [feedback, setFeedback] = useState(() => {
@@ -31,29 +33,31 @@ const App = () => {
 
   return (
     <div>
-      <h1>Sip Happens Café</h1>
-      <p>
-        Please leave your feedback about our service by selecting one of the
-        options below.
-      </p>
-      <Options
-        updateFeedback={updateFeedback}
-        totalFeedback={totalFeedback}
-        resetFeedback={resetFeedback}
-      />
-      {totalFeedback > 0 ? (
-        <Feedback
-          feedback={feedback}
+      <Section>
+        <Description />
+      </Section>
+      <Section>
+        <Options
+          updateFeedback={updateFeedback}
           totalFeedback={totalFeedback}
-          positiveFeedback={positiveFeedback}
+          resetFeedback={resetFeedback}
         />
-      ) : (
-        <Notification />
-      )}
+      </Section>
+      <Section>
+        {totalFeedback > 0 ? (
+          <Feedback
+            feedback={feedback}
+            totalFeedback={totalFeedback}
+            positiveFeedback={positiveFeedback}
+          />
+        ) : (
+          <Notification />
+        )}
+      </Section>
     </div>
   );
 };
 
-const Notification = () => <p>No feedback given yet.</p>;
+const Notification = () => <p>No feedback yet.</p>;
 
 export default App;
