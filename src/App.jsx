@@ -3,6 +3,7 @@ import Feedback from "./components/Feedback/Feedback";
 import Options from "./components/Options/Options";
 import Description from "./components/Description/Description";
 import Section from "./components/Section/Section";
+import "./App.css";
 
 const App = () => {
   const [feedback, setFeedback] = useState(() => {
@@ -32,7 +33,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <Section>
         <Description />
       </Section>
