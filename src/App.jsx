@@ -3,6 +3,7 @@ import Feedback from "./components/Feedback/Feedback";
 import Options from "./components/Options/Options";
 import Description from "./components/Description/Description";
 import Section from "./components/Section/Section";
+import Notification from "./components/Notification/Notification";
 import "./App.css";
 
 const App = () => {
@@ -58,7 +59,5 @@ const App = () => {
     </div>
   );
 };
-
-const Notification = () => <p>No feedback yet.</p>;
 
 export default App;
